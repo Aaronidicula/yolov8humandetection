@@ -1,0 +1,15 @@
+pip install ultralytics  #install the ultralytics if you ar using different machine to predict
+
+from ultralytics import YOLO
+
+import torch              #to use the nv gpu. we need to check torch version is compiled with cuda
+print(torch.__version__)
+print(torch.version.cuda)
+
+#load and test the image file
+model = YOLO("yolov8bestmain.pt")
+results = model("path/test.jpg", save=True, show=True)
+  
+#load and test the video file
+model = YOLO("yolov8bestmain.pt")
+results = model("path/testvideo.mp4", save=True, show=True)
